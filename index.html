@@ -1,15 +1,20 @@
 <!DOCTYPE html>
-<meta charset="ANSI" lang="en">
 <html>
     <head>
+        <meta charset="ANSI" lang="en">
         <link rel="stylesheet" href="style.css">
         <script src="script.js"></script>
         <title>HiddenChat</title>
     </head>
     <body>
         <div class="login login-text">
-            <form>
-                
+            <form action="/" method="POST">
+                <label id="lbl_username">Username: </label>
+                <input type="text" id="txt_username" name="username" placeholder="username"></br>
+                <label id="lbl_password">Password: </label>
+                <input type="password" id="txt_passwd" name="password" placeholder="passoword"></br>
+                <div class="sign-up">Not registered yet ? <a href="register.html">Sign up</a></div>
+                <input type="submit" value="submit">
             </form>
         </div>
         <div class="logo-container">
