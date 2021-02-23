@@ -6,4 +6,23 @@
         <script src="script.js"></script>
         <title>Register</title>
     </head>
+    <body>
+        <div class="login login-text">
+            Sign Up
+            <form action="/" method="POST">
+                <label id="lbl_studentid">Student ID: </label>
+                <input type="text" id="txt_studentid" name="studentid" placeholder="030821800XX" minlength="11"></br>
+                <label id="lbl_username">Username: </label>
+                <input type="text" id="txt_username" name="username" placeholder="john doe"></br>
+                <label id="lbl_password">Password: </label>
+                <input type="password" id="txt_passwd" name="password" placeholder="12345678" minlength="8"></br>
+                <label id="lbl_repassword">Confirm Password: </label>
+                <input type="password" id="txt_repasswd" name="repassword" placeholder="12345678" minlength="8"></br>
+                <input type="submit" value="submit">
+            </form>
+        </div>
+        <div class="logo-container">
+            <div class="logo logo-main" id="logo"></div>
+        </div>
+    </body>
 </html>
