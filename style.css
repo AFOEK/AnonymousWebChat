@@ -1,9 +1,7 @@
-<<<<<<< Updated upstream
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 html{
     font-family: 'Lato', sans-serif;
-=======
-<<<<<<< HEAD
+}
 body{
   font-size: larger;
 }
@@ -20,10 +18,4 @@ body{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-=======
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
-html{
-    font-family: 'Lato', sans-serif;
->>>>>>> 097027de9ce550e03829e344a37fef3ac2704c62
->>>>>>> Stashed changes
 }
