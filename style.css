@@ -2,12 +2,12 @@
 html{
     font-family: 'Lato', sans-serif;
 }
+
 body{
   font-size: larger;
 }
 
-*
-{
+*{
   background-color: aliceblue;
   text-align: center;
 }
