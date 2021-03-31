@@ -1,1 +1,6 @@
-console.log("Js are running")
+//console.log("Js are running")
+$(document).ready(function(){
+    $("#login").click(function(){
+        
+    });
+});
