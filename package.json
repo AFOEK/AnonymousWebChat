@@ -18,7 +18,7 @@
     "Node.js",
     "HTML"
   ],
-  "author": "AFOEK",
+  "author": ["AFOEK", "Trinity"],
   "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/AFOEK/AnonymousWebChat/issues"
