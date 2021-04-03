@@ -30,7 +30,7 @@ mongo.connect('mongodb://127.0.0.1/anonchat', function(err, db){
             let name = data.name;
             let message = data.message;
 
-            if(name== '' || message==''){
+            if(name == '' || message ==''){
                 sendStat('Please enter a name and message');
             }else{
                 chat.insert({name: name, message: message}, function(){
