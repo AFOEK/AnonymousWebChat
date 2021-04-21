@@ -29,10 +29,10 @@ router.post('/signup',(req,res)=>{
     var student_id = req.body.student_id;
 
     var data = {
+        "student_id": student_id,
         "name": name,
         "email": email,
         "password": password,
-        "student_id": student_id
     }
 
     db.collection('account').insertOne(data, function(err, collection){
