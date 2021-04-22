@@ -1,10 +1,11 @@
-var express = require("express");
-var mongoose = require("mongoose");
-var passport =  require("passport");
-var bodyParser =  require("body-parser");
-var LocalStrat = require("passport-local");
-var passport_local_mongoose = require("passport-local-mongoose");
-var User = require('./models/user');
+const express = require("express");
+const mongoose = require("mongoose");
+const passport =  require("passport");
+const path = require("path");
+const bodyParser =  require("body-parser");
+const LocalStrat = require("passport-local");
+const passport_local_mongoose = require("passport-local-mongoose");
+const User = require('../models/user');
 
 mongoose.set('useNewUrlParser',true);
 mongoose.set('useFindandModify',true);
@@ -14,6 +15,7 @@ mongoose.connect('mongodb://127.0.0.1/anonchat');
 
 var app=express();
 app.set("view options", {layout: false});
+app.set('view', path.join(__dirname, 'view'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(require("express-session")({
     secret: "Do it 4 her !",
@@ -40,8 +42,8 @@ app.get('/chat',isLoggedIn ,function (req,res) {
 });
 
 app.post('/register', function (req,res) {
-    var student_id =req.body.student_id
-    var password = req.body.password
+    const student_id =req.body.student_id
+    const password = req.body.password
     User.register(new User({ student_id: student_id }),
         password, function(err, user){
             if(err){
@@ -75,7 +77,7 @@ function isLoggedIn(req, res, next){
     res.redirect("/login");
 }
 
-var port = process.env.PORT || 4040;
+const port = process.env.PORT || 4040;
 app.listen(port, function () { 
     console.log("Server listened in port 4040")
  })

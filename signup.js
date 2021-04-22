@@ -3,6 +3,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const router =  express.Router();
 const app = express();
+const path = require("path");
+
 
 mongoose.connect('mongodb://127.0.0.1/anonchat')
 var db = mongoose.connection;
@@ -11,7 +13,7 @@ db.once('open', function (callback) {
     console.log("Connection success");
  })
 
-
+app.set('view', path.join(__dirname, 'view'));
 app.use(bodyParser.json());
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({
