@@ -18,6 +18,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+app.set("view options", {layout: false});
 router.get('/',(req,res) => {
     res.sendFile("index.html");
 });

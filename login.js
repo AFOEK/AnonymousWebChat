@@ -13,6 +13,7 @@ mongoose.set('useUnifiedTopology',true);
 mongoose.connect('mongodb://127.0.0.1/anonchat');
 
 var app=express();
+app.set("view options", {layout: false});
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(require("express-session")({
     secret: "Do it 4 her !",
@@ -26,3 +27,11 @@ app.use(passport.session());
 passport.use(new LocalStrat(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+app.get("/", function(req,res){
+    res.render('index.html')
+})
+
+app.get('/signup', function (req,res) {
+    res.render('register.html')
+})
+
