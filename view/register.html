@@ -5,7 +5,8 @@
         <div class="login login-text">
         <html lang="en">
   <!--<link rel="stylesheet" href="style.css">-->
-  <script src="script.js"></script>
+  <!-- <script src="script.js"></script> -->
+  <!-- <script src = "testHome.js"></script> -->
   <meta charset="ANSI" lang="en">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -25,24 +26,36 @@
         <div class="col-sm-6 login-section-wrapper">
           <div class="login-wrapper my-auto">
             <h1 class="login-title">Register</h1>
-            <form action="/signup" method="POST">
+
+            <form action="/signup" method="POST" id = "form" class = "form">
+
                 <div class="form-group">
-                <input type="text" id="txt_studentid" name="studentid" class="form-control"placeholder="student id" minlength="11">
+                <input type="text" id="txt_studentid" name="studentid" class="form-control"placeholder="student id" minlength="11" required="required">
               </div>
+
               <div class="form-group">
-                <input type="text" name="name" id="name" class="form-control" placeholder="name">
+                <input type="text" name="name" id="name" class="form-control" placeholder="name" required="required">
               </div>
+
               <div class="form-group">
-                <input type="email" name="email" id="email" class="form-control" placeholder="email">
+                <input type="email" name="email" id="email" class="form-control" placeholder="email"required="required">
               </div>
-              <div class="form-group mb-4">
-                <input type="password" name="password" id="password" class="form-control" placeholder="passsword">
+
+              <div class="form-group">
+                <input type="password" name="password" id="password" class="form-control" placeholder="passsword" required="required">
+                <small id = "pwdWarning1"></small>
               </div>
+
                 <div class="form-group">
-                <input type="password" id="txt_repasswd" name="repassword" class="form-control" placeholder="retype password" minlength="8">
+                <input type="password" id="txt_repasswd" name="repassword" class="form-control" placeholder="retype password" minlength="8" required="required">
+                <small id = "pwdWarning2"></small>
               </div>
-              <input name="signup" id="signup" class="btn btn-block login-btn" type="button" value="Register" onclick="window.location.href='index.html';">
+
+<!--             <input name="signup" id="signup" class="btn btn-block login-btn" type="button" value="Register" onclick="window.location.href='index.html';"> -->
+
+              <button class="btn btn-block login-btn" onclick="getInputValue();">Register</button>
             </form>
+
             <p class="login-wrapper-footer-text">Already registered? <b><a href="index.html" class="text-reset">Login</a></b></p>
           </div>
         </div>
@@ -52,5 +65,25 @@
         </div>
     </div>
   </main>
+
+<script>
+  function getInputValue(){
+            // Selecting the input element and get its value 
+            var studentid = document.getElementById("txt_studentid").value;
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value; 
+            var password = document.getElementById("password").value;
+            var txt_repasswd = document.getElementById("txt_repasswd").value;
+ 
+        if (password != txt_repasswd){
+        $("#pwdWarning1, #pwdWarning2").html("Passwords do not match!").css('color', 'red');
+        return false;
+        }
+        else{
+       // $("#pwdWarning1, #pwdWarning2").html("Passwords match.").css('color', 'green');
+       return true;
+        }
+        }
+</script>
 </body>
 </html>

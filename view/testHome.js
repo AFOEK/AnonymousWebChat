@@ -25,4 +25,3 @@ function sendMessage() {
 				
 				socket.emit('codeboard-message', message);
 			}
-
