@@ -24,10 +24,10 @@
             <h1 class="login-title">Login</h1>
             <form action="/login" method="POST"class="form form-main" id="form">
               <div class="form-group">
-                <input type="text" name="studentid" id="txt_studentid" class="form-control" placeholder="student_id" minlength="11">
+                <input type="text" name="studentid" id="txt_studentid" class="form-control" placeholder="student id" minlength="11" required="required">
               </div>
               <div class="form-group mb-4">
-                <input type="password" name="password" id="password" class="form-control" placeholder="12345678">
+                <input type="password" name="password" id="password" class="form-control" placeholder="password" required="required">
               </div>
               <input name="login" id="login" class="btn btn-block login-btn" type="button" value="Login" onclick="window.location.href='home.html';">
             </form>
@@ -40,5 +40,14 @@
       </div>
     </div>
   </main>
+
+  <script>
+  function getInputValue(){
+            var studentid = document.getElementById("txt_studentid").value;
+            var password = document.getElementById("password").value;
+
+             // small tag warning kalo pass input gk sama dgn db..
+        }
+</script>
 </body>
 </html>
