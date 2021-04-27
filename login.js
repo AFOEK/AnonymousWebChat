@@ -5,7 +5,7 @@ const path = require("path");
 const bodyParser =  require("body-parser");
 const LocalStrat = require("passport-local");
 const passport_local_mongoose = require("passport-local-mongoose");
-const User = require('../models/user');
+const User = require('/models/user.js');
 
 mongoose.set('useNewUrlParser',true);
 mongoose.set('useFindandModify',true);
