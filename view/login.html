@@ -28,6 +28,7 @@
               </div>
               <div class="form-group mb-4">
                 <input type="password" name="password" id="password" class="form-control" placeholder="password" required="required">
+                <small id = "noAccWarning"></small>
               </div>
         <!--       <input name="login" id="login" class="btn btn-block login-btn" type="button" value="Login"> -->
         <button class="btn btn-block login-btn" onclick="getInputValue();">Login</button>
@@ -47,6 +48,13 @@
   function getInputValue(){
             var studentid = document.getElementById("txt_studentid").value;
             var password = document.getElementById("password").value;
+
+    {
+    if (studentid == "03082180190" && password == "lingling40hour") 
+    window.open("home.html")
+  } 
+  else (studentid != "03082180190" password == "lingling40hour"){
+    $("#noAccWarning").html("No such account with!").css('color', 'red');
         }
 </script>
 </body>
