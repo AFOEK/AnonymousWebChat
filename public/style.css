@@ -228,6 +228,8 @@ body {
 				float: right;
 				background: #6FA1ED;
 				color: white;
+        /*font-weight: bold;*/
+        font-size:13pt;
 			}
 			
 			.others-message {
@@ -239,5 +241,4 @@ body {
 				width: 100%;
 				height: 8px;
 				float: left;
-			}
-
+	}

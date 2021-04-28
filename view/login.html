@@ -1,19 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <!--<link rel = "stylesheet" type="text/css" href="style.css">-->
-  <script type = "text/script" src="script.js"></script>
+<html>
+    <head>
+        <meta charset="ANSI" lang="en">
+        <div class="login login-text">
+        <html lang="en">
   <meta charset="ANSI" lang="en">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Login</title>
+  <title>Register</title>
   <script type = "text/script" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script type = "text/script" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script type = "text/script" src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel = "stylesheet" type="text/css">
-  <link rel = "stylesheet" type="text/css" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
-  <link rel = "stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <link rel = "stylesheet" type="text/css" href="../public/modifLogin.css">
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet" type="text/css" media="screen">
+  <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="../public/modifLogin.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../public/modifLogin.css">
 </head>
 <body>
   <main>
@@ -22,18 +30,23 @@
         <div class="col-sm-6 login-section-wrapper">
           <div class="login-wrapper my-auto">
             <h1 class="login-title">Login</h1>
-            <form action="/login" method="POST"class="form form-main" id="form">
+
+               <form action="" method="" id = "form" class = "form" onSubmit="return getInputValue();return false;">
+
               <div class="form-group">
                 <input type="text" name="studentid" id="txt_studentid" class="form-control" placeholder="student id" minlength="11" required="required">
+          
               </div>
-              <div class="form-group mb-4">
+              <div class="form-group">
                 <input type="password" name="password" id="password" class="form-control" placeholder="password" required="required">
-                <small id = "noAccWarning"></small>
+                <small id = "wrongPass" style="font-size:101%;"></small>
+                <small id = "noAcc" style="font-size:102%;"></small>
               </div>
-        <!--       <input name="login" id="login" class="btn btn-block login-btn" type="button" value="Login"> -->
-        <button class="btn btn-block login-btn" onclick="getInputValue();">Login</button>
-              <!-- onclick="window.location.href='home.html';" -->
+
+            <button class="btn btn-block login-btn" onclick="getInputValue();">Login</button>
+            
             </form>
+
             <p class="login-wrapper-footer-text">New user? <b><a href="register.html" class="text-reset">Register</a></b></p>
           </div>
         </div>
@@ -43,7 +56,7 @@
       </div>
     </div>
   </main>
-
+<!-- 
   <script>
   function getInputValue(){
             var studentid = document.getElementById("txt_studentid").value;
@@ -51,10 +64,42 @@
 
     {
     if (studentid == "03082180190" && password == "lingling40hour") 
-    window.open("home.html")
+    location.href = "home.html";
+  return true;
   } 
-  else (studentid != "03082180190" password == "lingling40hour"){
-    $("#noAccWarning").html("No such account with!").css('color', 'red');
+  else {
+    $("#noAcc").html("Account with such student id and password not found").css('color', 'red');
+    return false;
+        }
+</script> -->
+
+
+<script>
+  function getInputValue(){
+            // Selecting the input element and get its value 
+            var studentid = document.getElementById("txt_studentid").value;
+            var password = document.getElementById("password").value;
+ 
+        if (studentid == "03082180190" && password == "lingling40hour"){
+        window.open("home.html");
+        }
+        else if ((studentid != "03082180190" && password != "lingling40hour")){
+       $("#noAcc").html("Account not registered.").css('color', 'red');
+       return false;
+        }
+
+        else if (studentid == "03082180190" && password != "lingling40hour")
+        {
+          $("#wrongPass").html("Wrong password!").css('color', 'red');
+       return false;
+        }
+
+        else if (studentid == "" && password != "")
+        {
+        $("#noAcc").html("").css('');
+       return false;  
+       return false;
+        }
         }
 </script>
 </body>

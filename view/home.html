@@ -20,7 +20,7 @@
   </div>
 
   <div class="msger-inputarea">
-    <a href="https://forms.office.com/r/RT1F1Ai1cb" target="_blank"><i class="fa fa-exclamation-triangle" aria-hidden="true" style="color:grey"></i></a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScD9625Kco9SbR-4tmTEgTekew5lFLNSJA9mBY3Av5vBR2O2g/viewform?usp=pp_url" target="_blank"><i class="fa fa-exclamation-triangle" aria-hidden="true" style="color:grey"></i></a>
     <input type="text" id="msger-input" class="msger-input" placeholder="Type a message">
     <button type="submit" class="msger-send-btn" onclick="sendMessage()">
       <i class="fa fa-paper-plane" aria-hidden="true"></i>
@@ -48,7 +48,7 @@ var socket;
 function sendMessage() {
         var message = document.getElementById("msger-input").value;
         var html = '<div class="message-box my-message-box">' +
-                '<div class="message my-message"> ' + message + ' </div>' +
+                '<div class="message my-message"> '+ '<h5 style = "color:#002B68;text-align:right; padding-bottom:3px;font-family:nunito;">lingling</h5>' + message + ' </div>' +
                 '<div class="separator"></div>' +
               '</div>';
               
