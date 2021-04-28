@@ -14,7 +14,7 @@ mongoose.set('useUnifiedTopology',true);
 mongoose.connect('mongodb://127.0.0.1/anonchat');
 
 var app=express();
-app.set("view options", {layout: false});
+app.set("view options", {layout: true});
 app.set('view', path.join(__dirname, 'view'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(require("express-session")({
@@ -30,15 +30,15 @@ passport.use(new LocalStrat(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 app.get("/", function(req,res){
-    res.render('index.html')
+    res.sendFile(path.join(__dirname+'/view/index.html'));
 });
 
 app.get('/signup', function (req,res) {
-    res.render('register.html');
+    res.sendFile(path.join(__dirname+'/view/register.html'));
 });
 
 app.get('/chat',isLoggedIn ,function (req,res) {
-    res.render('home.html');
+    res.sendFile(path.join(__dirname+'/view/home.html'));
 });
 
 app.post('/register', function (req,res) {
@@ -48,17 +48,17 @@ app.post('/register', function (req,res) {
         password, function(err, user){
             if(err){
                 console.log(err);
-                return res.render('register.html');
+                return res.sendFile(path.join(__dirname+'/view/register.html'));
             }
             passport.authenticate("local")(
                 req, res, function (){
-                    res.render('home.html');
+                    res.sendFile(path.join(__dirname + '/view/home.html'))
                 });
         });
 });
 
 app.get('/login', function(req,res){
-    res.render('login.html')
+    res.sendFile(path.join(__dirname+'/view/login.html'));
 });
 
 app.post('/login', passport.authenticate("local",{
