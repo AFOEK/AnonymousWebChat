@@ -25,7 +25,7 @@ app.use(require("express-session")({
 
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(express.static('assets'));
+app.use('/static',express.static('assets'));
 
 passport.use(new LocalStrat(User.authenticate()));
 passport.serializeUser(User.serializeUser());
