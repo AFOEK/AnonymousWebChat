@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<<<<<<< Updated upstream:view/index.html
   <!--<link type="text/css" href="style.css">-->
+=======
+  <!--<link rel="stylesheet" href="style.css">-->
+  <script src="script.js"></script>
+>>>>>>> Stashed changes:view/login.html
   <meta charset="ANSI" lang="en">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Login</title>
+<<<<<<< Updated upstream:view/index.html
   <script type="text/script" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script type="text/script" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script type="text/script" src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
@@ -13,8 +19,17 @@
   <link type="text/css" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
   <link type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <link type="text/css" href="../public/modifLogin.css">
+=======
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="modifLogin.css">
+>>>>>>> Stashed changes:view/login.html
 </head>
-<body>
+<body id = "a">
   <main>
     <div class="container-fluid">
       <div class="row">
@@ -28,7 +43,9 @@
               <div class="form-group mb-4">
                 <input type="password" name="password" id="password" class="form-control" placeholder="password" required="required">
               </div>
-              <input name="login" id="login" class="btn btn-block login-btn" type="button" value="Login" onclick="window.location.href='home.html';">
+        <!--       <input name="login" id="login" class="btn btn-block login-btn" type="button" value="Login"> -->
+        <button class="btn btn-block login-btn" onclick="getInputValue();">Login</button>
+              <!-- onclick="window.location.href='home.html';" -->
             </form>
             <p class="login-wrapper-footer-text">New user? <b><a href="register.html" class="text-reset">Register</a></b></p>
           </div>
