@@ -25,7 +25,7 @@ app.use(require("express-session")({
 
 app.use(passport.initialize());
 app.use(passport.session());
-app.use('/static',express.static('assets'));
+app.use(express.static('public'));
 
 passport.use(new LocalStrat(User.authenticate()));
 passport.serializeUser(User.serializeUser());
@@ -53,7 +53,7 @@ app.post('/signup', function (req,res) {
             }
             passport.authenticate("local")(
                 req, res, function (){
-                    res.sendFile(path.join(__dirname + 'home.html'))
+                    res.sendFile(path.join(__dirname + '/view/home.html'))
                 });
         });
 });
