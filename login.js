@@ -3,12 +3,12 @@ const mongoose = require("mongoose");
 const passport =  require("passport");
 const path = require("path");
 const bodyParser =  require("body-parser");
-const LocalStrat = require("passport-local");
+const LocalStrat = require("passport-local").Strategy;
 const passport_local_mongoose = require("passport-local-mongoose");
-const User = require('/models/user.js');
+var User = require('./model/user');
 
 mongoose.set('useNewUrlParser',true);
-mongoose.set('useFindandModify',true);
+mongoose.set('useFindAndModify',true);
 mongoose.set('useCreateIndex',true);
 mongoose.set('useUnifiedTopology',true);
 mongoose.connect('mongodb://127.0.0.1/anonchat');
