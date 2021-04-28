@@ -25,6 +25,7 @@ app.use(require("express-session")({
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(express.static('assets-'));
 
 passport.use(new LocalStrat(User.authenticate()));
 passport.serializeUser(User.serializeUser());
@@ -41,7 +42,7 @@ app.get('/chat',isLoggedIn ,function (req,res) {
     res.sendFile(path.join(__dirname+'/view/home.html'));
 });
 
-app.post('/register', function (req,res) {
+app.post('/signup', function (req,res) {
     const student_id =req.body.student_id
     const password = req.body.password
     User.register(new User({ student_id: student_id }),
@@ -52,7 +53,7 @@ app.post('/register', function (req,res) {
             }
             passport.authenticate("local")(
                 req, res, function (){
-                    res.sendFile(path.join(__dirname + '/view/home.html'))
+                    res.sendFile(path.join(__dirname + 'home.html'))
                 });
         });
 });
