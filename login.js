@@ -31,7 +31,7 @@ passport.use(new LocalStrat(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 app.get("/", function(req,res){
-    res.sendFile(path.join(__dirname+'/view/index.html'));
+    res.sendFile(path.join(__dirname+'/view/login.html'));
 });
 
 app.get('/signup', function (req,res) {
