@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet" type="text/css" media="screen">
   <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
   <link rel="stylesheet" type="text/css" media="screen" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" media="screen" href="../public/modifLogin.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="modifLogin.css">
 </head>
 <body>
   <main>
@@ -46,6 +46,7 @@
                 <div class="form-group">
                 <input type="password" id="txt_repasswd" name="repassword" class="form-control" placeholder="retype password" minlength="8" required="required">
                 <small id = "pwdWarning2"></small>
+                <small id = "accExisted"></small>
               </div>
 
               <button class="btn btn-block login-btn" onclick="getInputValue();">Register</button>
@@ -75,7 +76,7 @@
         dataType: "json",
         success: function(response){
           $('#form')[0].reset();
-          document.getElementById("check").innerHTML=response.Success;
+          document.getElementById(" ").innerHTML=response.Success;
          	setTimeout(function(){
          		document.getElementById("check").innerHTML="";
          	},3000);
@@ -90,19 +91,23 @@
     });
   });
   function getInputValue(){
-            // Selecting the input element and get its value 
             var studentid = document.getElementById("txt_studentid").value;
             var name = document.getElementById("name").value;
             var email = document.getElementById("email").value; 
             var password = document.getElementById("password").value;
             var txt_repasswd = document.getElementById("txt_repasswd").value;
- 
-        if (password != txt_repasswd){
+
+
+       //  if (studentid == "03082180190" && name == "lingling" && email == "ling2@gmail.com" && password == "lingling40hour" && txt_repasswd == "lingling40hour")
+       //  {
+       //  $("#accExisted").html("Account already existed.").css('color', 'red');
+       // return false;
+       //  }
+         if (password != txt_repasswd){
         $("#pwdWarning1, #pwdWarning2").html("Passwords do not match!").css('color', 'red');
         return false;
         }
         else{
-       // $("#pwdWarning1, #pwdWarning2").html("Passwords match.").css('color', 'green');
        return true;
         }
         }
