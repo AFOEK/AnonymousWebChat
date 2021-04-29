@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
  <head>
-    <!-- <script src = "testHome.js"></script> -->
     <link rel = "stylesheet" type="text/css" href = "style.css">
     <link rel = "stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
-
-  <body>
+   <body>
     <section class="msger">
     <header class="msger-header">
     <div class="msger-header-title">
@@ -14,11 +12,8 @@
       <button type="button" class="leave-btn" onclick="window.location.href='login.html';">Leave</button>
     </div>
   </header>
-
   <div class="msger-chat" id = "msger-chat">
-    
   </div>
-
   <div class="msger-inputarea">
     <a href="https://docs.google.com/forms/d/e/1FAIpQLScD9625Kco9SbR-4tmTEgTekew5lFLNSJA9mBY3Av5vBR2O2g/viewform?usp=pp_url" target="_blank"><i class="fa fa-exclamation-triangle" aria-hidden="true" style="color:grey"></i></a>
     <input type="text" id="msger-input" class="msger-input" placeholder="Type a message">
@@ -26,21 +21,16 @@
       <i class="fa fa-paper-plane" aria-hidden="true"></i>
     </button>
     </div>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" integrity="sha512-v8ng/uGxkge3d1IJuEo6dJP8JViyvms0cly9pnbfRxT6/31c3dRWxIiwGnMSWwZjHKOuY3EVmijs7k1jz/9bLA==" crossorigin="anonymous"></script>
-
 <script>
 var socket;
       window.onload = function() {
-        
         socket = io.connect('http://localhost:4040');
-        
         socket.on('message-from-others', function(message){
           var html = '<div class="message-box others-message-box">' +
                 '<div class="message others-message"> ' + message + ' </div>' +
                 '<div class="separator"></div>' +
               '</div>';
-              
           document.getElementById("msger-chat").innerHTML += html;
         })
       }
@@ -51,10 +41,8 @@ function sendMessage() {
                 '<div class="message my-message"> '+ '<h5 style = "color:#002B68;text-align:right; padding-bottom:3px;font-family:nunito;">lingling</h5>' + message + ' </div>' +
                 '<div class="separator"></div>' +
               '</div>';
-              
         document.getElementById("msger-chat").innerHTML += html;
         document.getElementById("msger-input").value = "";
-        
         socket.emit('codeboard-message', message);
       }
 </script>
