@@ -36,7 +36,8 @@ app.use(require("express-session")({
         mongooseConnection: db
     })
 }));
-//add route file
+
+var index = require('./routes/route')
 
 app.use(function (req,res,next) {
     var err = new Error('File Not Found');
@@ -49,7 +50,7 @@ app.use(function (err, req, res, next) {
     res.send(err.message);
 });
 
-const PORT = process.env.PORT || 4040;
+const PORT = process.env.PORT || process.env.YOUR_PORT || 4040;
 app.listen(PORT, function () {
-  console.log('Server is started on http://127.0.0.1:'+PORT);
+  console.log('Server is started on http://localhost:'+PORT);
 });

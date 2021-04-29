@@ -1,6 +1,8 @@
 var express = require("express");
 var router = express.Router();
 var path = require("path");
+var http = require('http').createServer(app);
+var io = require('socket.io')(http);
 var User = require("../models/user");
 
 router.get("/", function (req, res, next) {
@@ -74,7 +76,7 @@ router.post("/login", function (req, res, next) {
   });
 });
 
-router.get("/logout", function (req, res, next) {
+router.get('/logout', function (req, res, next) {
   console.log("logout");
   if (req.session) {
     // delete session object
@@ -87,3 +89,17 @@ router.get("/logout", function (req, res, next) {
     });
   }
 });
+
+router.get('/home', function(req,res){
+    res.sendFile(path.join(__dirname + '/view/home.html'))
+});
+
+io.on('connection', (socket) => {
+    console.log('User Online');
+    socket.on('codeboard-message', (msg) => {
+        console.log('message: ' + msg);
+        socket.broadcast.emit('message-from-others', msg);
+    });
+});
+
+module.exports = router;

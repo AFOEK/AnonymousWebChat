@@ -33,7 +33,7 @@
 var socket;
       window.onload = function() {
         
-        socket = io.connect('http://127.0.0.1:4040');
+        socket = io.connect('http://localhost:4040');
         
         socket.on('message-from-others', function(message){
           var html = '<div class="message-box others-message-box">' +
