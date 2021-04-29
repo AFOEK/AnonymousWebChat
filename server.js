@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var app = express();
 var User = require('./model/user');
-var MongoStore = require('connect-mongo')(session);
+var MongoStore = require('connect-mongo');
 
 mongoose.connect('mongodb://localhost/anonchat',{
     useNewUrlParser: true,
@@ -32,9 +32,7 @@ app.use(require("express-session")({
     secret: "Do it 4 her !",
     resave: false,
     saveUninitialized: false,
-    store: new MongoStore({
-        mongooseConnection: db
-    })
+    store: new MongoStore({mongooseConnection: mongoose.connection})
 }));
 
 var index = require('./routes/route')
