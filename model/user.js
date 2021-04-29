@@ -5,7 +5,7 @@ var passportLocalMongoose = require('passport-local-mongoose');
 
 userSchema = new schema({
     unique_id: Number,
-    student_id: String,
+    studentid: String,
     name: String,
     email: String,
     password: String
