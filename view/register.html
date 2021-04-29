@@ -4,36 +4,20 @@
         <meta charset="ANSI" lang="en">
         <div class="login login-text">
         <html lang="en">
-<<<<<<< HEAD
-  <!--<link rel="stylesheet" type="text/css" media="screen" href="style.css">-->
-  <!-- <script type = "text/script" src="script.js"></script> -->
-  <!-- <script type = "text/script" src = "testHome.js"></script> -->
-=======
   <!--<link rel="stylesheet" href="style.css">-->
   <!-- <script src="script.js"></script> -->
   <!-- <script src = "testHome.js"></script> -->
->>>>>>> 62339147ce896ee116deab957eca648a13678530
   <meta charset="ANSI" lang="en">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Register</title>
-<<<<<<< HEAD
-  <script type = "text/script" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script type = "text/script" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-  <script type = "text/script" src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet" type="text/css" media="screen">
-  <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
-  <link rel="stylesheet" type="text/css" media="screen" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" media="screen" href="../public/modifLogin.css">
-=======
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../public/modifLogin.css">
->>>>>>> 62339147ce896ee116deab957eca648a13678530
+  <link rel="stylesheet" href="modifLogin.css">
 </head>
 <body>
   <main>
@@ -71,7 +55,10 @@
 
               <button class="btn btn-block login-btn" onclick="getInputValue();">Register</button>
             </form>
-
+            
+            <div class="mssg bg-danger">
+              <span id="check"></span>
+            </div>
             <p class="login-wrapper-footer-text">Already registered? <b><a href="login.html" class="text-reset">Login</a></b></p>
           </div>
         </div>
@@ -82,7 +69,31 @@
     </div>
   </main>
 
-<script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#form").submit(function(event){
+      event.preventDefault();
+      $.ajax({
+        type:'POST',
+        url: '/',
+        data:$('#form').serialize(),
+        dataType: "json",
+        success: function(response){
+          $('#form')[0].reset();
+          document.getElementById("check").innerHTML=response.Success;
+         	setTimeout(function(){
+         		document.getElementById("check").innerHTML="";
+         	},3000);
+         	if (response.Success=="You are regestered,You can login now.") {
+         		document.getElementById("aa").click();
+         	};
+        },
+        error:function(){
+
+        }
+      })
+    });
+  });
   function getInputValue(){
             // Selecting the input element and get its value 
             var studentid = document.getElementById("txt_studentid").value;

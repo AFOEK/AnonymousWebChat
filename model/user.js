@@ -4,6 +4,7 @@ var schema = mongoose.Schema;
 var passportLocalMongoose = require('passport-local-mongoose');
 
 userSchema = new schema({
+    unique_id: Number,
     student_id: String,
     name: String,
     email: String,
